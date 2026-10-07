@@ -1,0 +1,18 @@
+<div class="leaderboard">
+    <h2>Players:</h2>
+    <div class="player_list"> 
+        {% for name,player in players.items() %}
+        <div class="player">
+            <span class="player-rank"> {{ loop.index }}</span>
+            <span class="player-name {% if player['host'] %}host{% endif %}">
+                {{name}}
+            </span>
+            <input 
+            type="checkbox"
+            {% if player["guess"] is not none %}checked{% endif %}
+            disabled
+            >
+        </div>
+        {% endfor %}
+    </div>
+</div>

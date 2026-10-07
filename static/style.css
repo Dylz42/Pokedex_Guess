@@ -21,3 +21,37 @@
 .create-btn{
     width: 100%;
 }
+
+.main{
+    display: flex;
+}
+
+.leaderboard{
+    width: 25%;
+    justify-content: center;
+    
+}
+
+.game-page{
+    width: 75%;
+    justify-content: center;
+    
+}
+
+.game-controls{
+    display:flex;
+    justify-content: center;
+    gap: 2%;
+    
+}
+
+.stack{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
+
+.host{
+  color: red;  
+}

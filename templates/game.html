@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="stack">
+<div class="main">
+    {% include "leaderboard.html" %}
+    <div class="game-page">
+        <h2> ROOM CODE: {{room_code }}</h2>
+        <h2> Guess the Pokemon with dex: {{ dex_number }}</h2>
+
+        <form class="pokemon-form" method="post">
+        <div class="select">
+
+        <input type="text" placeholder="Pokemon" name="guess" value="{{guess}}"/>
+        <button type="submit" name="select">Submit</button>
+
+        </div>
+        </form>
+    </div>
+</div>
+<div class="game-controls">
+    <form method="post" action="/leave">
+    <button class="leave-btn" type="submit"> LEAVE </button>
+    </form>
+    <button class="reset-btn"> New Round </button>
+    <button class="results-btn"> End Round </button>
+</div>
+</div>
+{% endblock %}
