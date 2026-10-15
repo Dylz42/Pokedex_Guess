@@ -1,5 +1,5 @@
 # DexGuess.io
-A real-time multiplayer Pokémon guessing game built using Python, Flask, JavaScript, HTML and CSS. This is a final project for the Harvard CS50 Course
+A real-time multiplayer Pokémon guessing game built using Python, Flask, JavaScript, HTML and CSS. This is a final project for the Harvard CS50 Course. The web-application is currently available to be played at:  [https://pokedexguess-production.up.railway.app/](https://pokedexguess-production.up.railway.app/)
 
 ## About the Project
 
