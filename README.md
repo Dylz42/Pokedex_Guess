@@ -29,7 +29,7 @@ Another challenge involved websockets disconnecting when navigating between diff
 
 Finally, I deployed the application using Railway, gaining practical experience with cloud hosting, environment variables, dependency management and troubleshooting deployment issues.
 
-## AI use
+## AI Use
 
 Throughout development, I used AI as a digital tutor, primarily to explain unfamiliar concepts, discuss implementation approaches and help troubleshoot errors.
 
