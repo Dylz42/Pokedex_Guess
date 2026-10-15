@@ -1,3 +1,6 @@
 Flask
-flask-socketio
+Flask-SocketIO
 python-dotenv
+requests
+gunicorn
+simple-websocket
