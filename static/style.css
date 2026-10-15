@@ -1,57 +1,518 @@
-.content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.answer-sprite {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
 }
 
-.index{
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #e8f3e5;
+    color: #304e3a;
+    font-family: Arial, sans-serif;
+}
+
+.dex-hint {
+    margin: 0;
+    color: #647a68;
+}
+
+.dex-hint strong {
+    color: #304e3a;
+    font-size: 22px;
+}
+
+.site-header {
+    text-align: center;
+    padding: 28px 20px 12px;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.index {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+
+    width: min(100%, 380px);
+    padding: 32px;
+
+    background: white;
+    border: 1px solid #cfdecd;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(48, 78, 58, 0.08);
+    box-sizing: border-box;
+}
+
+.index h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.index p {
+    text-align: center;
+    margin: 0;
+    color: #647a68;
+    font-size: 14px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.index input {
+    padding: 12px;
+    border: 1px solid #cfdecd;
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.index input:focus {
+    outline: 2px solid #9fc5a3;
+    outline-offset: 1px;
 }
 
 .join{
     display: flex;
-    flex-direction: row;
+    gap: 10px;
     width: 100%;
 }
+
+.join input {
+    flex: 1;
+    width: 0;
+}
+
+.index button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #79a987;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.index button:hover {
+    background: #628e70;
+}
+
 
 .create-btn{
     width: 100%;
 }
 
-.main{
+.divider-text {
+    text-align: center;
+    color: #8a9c8d;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.main {
     display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+
+#leaderboard-container {
+    flex: 1;
+    min-width: 0;
 }
 
 .leaderboard{
-    width: 25%;
-    justify-content: center;
-    
+    background: white;
+    border: 1px solid #cfdecd;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(48, 78, 58, 0.08);
+}
+
+.leaderboard h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+#leaderboard-container {
+    flex: 1;
+    min-width: 0;
+}
+
+.game-area {
+    flex: 2;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#game-content {
+    width: 100%;
 }
 
 .game-page{
-    width: 75%;
-    justify-content: center;
-    
+    background: white;
+    border: 1px solid #cfdecd;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 6px 20px rgba(48, 78, 58, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px; 
 }
 
-.game-controls{
-    display:flex;
+.result-page {
+    background: white;
+    border: 1px solid #cfdecd;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(48, 78, 58, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+#controls-container {
+    width: 100%;
+}
+
+.game-controls {
+    display: flex;
     justify-content: center;
-    gap: 2%;
-    
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+}
+
+.game-controls form {
+    flex: 1;
+    min-width: 0;
+}
+
+.game-controls button {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.game-controls button:hover {
+    transform: translateY(-2px);
+}
+
+.game-controls button:active {
+    transform: translateY(0);
+}
+
+.reset-btn,
+.end-btn {
+    background: #79a987;
+    color: white;
+}
+
+.reset-btn:hover,
+.end-btn:hover {
+    background: #628e70;
+}
+
+.leave-btn {
+    background: #d98888;
+    color: white;
+}
+
+.leave-btn:hover {
+    background: #c56f6f;
+}
+
+.game-page h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+#guess-message {
+    margin: 12px 0 0;
+    min-height: 20px;
+    font-size: 14px;
+    color: #647a68;
+}
+
+.guess-entry {
+    background: white;
+    border: 1px solid #cfdecd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(48, 78, 58, 0.06);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.guess-entry h3 {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.guess-entry p {
+    margin: 0;
+}
+
+.guess-sprite {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.guess-pokemon {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.guess-dex {
+    color: #647a68;
+    font-size: 14px;
+}
+
+.guess-points {
+    color: #304e3a;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .stack{
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: min(100%, 1000px);
     
 }
 
 .host{
   color: red;  
+}
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.font-credit {
+    position: absolute;
+    right: 0;
+    bottom: -18px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    color: #304e3a;
+    font-size: 11px;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.font-credit:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.font-icon {
+    font-size: 14px;
+}
+
+.no-guess {
+    color: #8a9c8d;
+    font-style: italic;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f5f9f3;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.player-name {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.current-player {
+    font-weight: bold;
+}
+
+.player-score {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.player_list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.player-score {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.player-rank {
+    color: #647a68;
+    font-weight: bold;
+    min-width: 18px;
+}
+
+.player input[type="checkbox"] {
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: #79a987;
+}
+
+.pokemon-form {
+    width: 100%;
+    max-width: 440px;
+}
+
+.room-code {
+    background: #e8f3e5;
+    color: #304e3a;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.result-page h2,
+.result-page h1 {
+    margin: 0;
+}
+
+.result-page h2 {
+    font-size: 20px;
+}
+
+.result-page h1 {
+    font-size: 30px;
+}
+
+.round-breakdown {
+    margin-top: 20px;
+}
+
+.round-breakdown h2 {
+    text-align: center;
+    margin: 0 0 16px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.select {
+    display: flex;
+    gap: 10px;
+}
+
+.select input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cfdecd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.select input:focus {
+    outline: 2px solid #9fc5a3;
+    outline-offset: 1px;
+}
+
+.select button {
+    background: #79a987;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select button:hover {
+    background: #628e70;
+}
+
+.site-logo {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 600px) {
+    .main {
+        flex-direction: column;
+    }
+
+    #leaderboard-container,
+    .game-area {
+        width: 100%;
+    }
+
+    .select {
+        flex-direction: column;
+    }
+
+    .game-page {
+        padding: 24px 16px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
 }

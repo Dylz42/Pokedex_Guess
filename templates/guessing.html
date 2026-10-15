@@ -1,0 +1,25 @@
+<div class="game-page">
+    <div class="room-code">
+        ROOM CODE: <strong>{{ room_code }}</strong>
+    </div>
+
+    <h2>Guess the Pokémon!</h2>
+    <p class="dex-hint">Pokédex Number: <strong>#{{ dex_number }}</strong></p>
+
+    <form class="pokemon-form" action="{{ url_for('game') }}" method="post">
+
+        <div class="select">
+            <input
+                type="text"
+                placeholder="Enter a Pokémon name"
+                name="guess"
+                value="{{ guess | default('', true) }}"
+                autocomplete="off"
+                required
+            />
+            <button type="submit" name="select">Submit Guess</button>
+        </div>
+
+        <p id="guess-message" aria-live="polite"></p>
+    </form>
+</div>

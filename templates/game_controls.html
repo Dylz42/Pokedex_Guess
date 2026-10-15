@@ -1,0 +1,20 @@
+<div class="game-controls">
+    <form action="{{ url_for('leave') }}" method="post">
+        <button class="leave-btn" type="submit">LEAVE</button>
+    </form>
+
+    {% if is_host %}
+       
+        <form action="{{ url_for('reset') }}" method="post" class="round-action">
+            <button type="submit" class="reset-btn">NEW ROUND</button>
+        </form>
+
+        {% if status == "game" %}
+            <form class="round-action" action="{{ url_for('end') }}" method="post">
+                <button type="submit" class="end-btn">END ROUND</button>
+            </form>
+        {% endif %}
+
+        
+    {% endif %}
+</div>

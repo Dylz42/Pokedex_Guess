@@ -1,0 +1,52 @@
+<div class="result-page">
+
+    <div class="room-code">
+        ROOM CODE: <strong>{{ room_code }}</strong>
+    </div>
+
+    <h2>Pokémon #{{ dex_number }} is:</h2>
+    <h1>{{ pokemon }}</h1>
+
+    {% if answer_sprite %}
+        <img class="answer-sprite"
+             src="{{ answer_sprite }}"
+             alt="{{ pokemon }}">
+    {% endif %}
+
+</div>
+
+<div class="round-breakdown">
+    <h2>Round Breakdown</h2>
+
+    <div class="results-grid">
+        {% for guess in round_guesses %}
+            <div class="guess-entry">
+
+                <h3>{{ guess["name"] }}</h3>
+
+                {% if guess["pokemon"] %}
+
+                    {% if guess["sprite"] %}
+                        <img class="guess-sprite"
+                             src="{{ guess['sprite'] }}"
+                             alt="{{ guess['pokemon'] }}">
+                    {% endif %}
+
+                    <p class="guess-pokemon">{{ guess["pokemon"] }}</p>
+
+                    <p class="guess-dex">
+                        Pokédex #{{ guess["dex_number"] }}
+                    </p>
+
+                    <p class="guess-points">
+                        {{ guess["points"] }} pts
+                    </p>
+
+                {% else %}
+                    <p class="no-guess">No guess submitted</p>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+    </div>
+</div>

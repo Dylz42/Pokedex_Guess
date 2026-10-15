@@ -1,28 +1,131 @@
 {% extends 'layout.html' %}
 {% block content %}
+
 <div class="stack">
-<div class="main">
-    {% include "leaderboard.html" %}
-    <div class="game-page">
-        <h2> ROOM CODE: {{room_code }}</h2>
-        <h2> Guess the Pokemon with dex: {{ dex_number }}</h2>
+    <div class="main">
 
-        <form class="pokemon-form" method="post">
-        <div class="select">
-
-        <input type="text" placeholder="Pokemon" name="guess" value="{{guess}}"/>
-        <button type="submit" name="select">Submit</button>
-
+        <div id="leaderboard-container">
+            {% include "leaderboard.html" %}
         </div>
-        </form>
+
+        <div class="game-area">
+            <div id="game-content">
+                {{ content | safe }}
+            </div>
+
+            <div id="controls-container">
+                {% include "game_controls.html" %}
+            </div>
+        </div>
+
     </div>
 </div>
-<div class="game-controls">
-    <form method="post" action="/leave">
-    <button class="leave-btn" type="submit"> LEAVE </button>
-    </form>
-    <button class="reset-btn"> New Round </button>
-    <button class="results-btn"> End Round </button>
-</div>
-</div>
+
+<script type="text/javascript">
+
+
+    const socket = io();
+
+    socket.on("connect", function() {
+    updateGameContent();
+    updateLeaderboard();
+    updateControls();
+});
+
+    socket.on("round_ended", function() {
+    updateGameContent();
+    updateLeaderboard();
+    updateControls();
+});
+
+    socket.on("round_reset", function() {
+    updateGameContent();
+    updateLeaderboard();
+    updateControls();
+});
+
+    async function updateLeaderboard() {
+        const response = await fetch("{{ url_for('leaderboard')}}");
+
+        if (response.ok) {
+            const html = await response.text();
+
+            document.getElementById("leaderboard-container").innerHTML = html;
+        }
+    }
+
+    async function updateControls() {
+        const response = await fetch("{{ url_for('game_controls')}}");
+
+        if (response.ok) {
+            const html = await response.text();
+
+            document.getElementById("controls-container").innerHTML = html;
+        }
+    }
+
+    async function updateGameContent() {
+    const response = await fetch("{{ url_for('game_content') }}");
+
+    if (response.ok) {
+        const html = await response.text();
+
+        document.getElementById("game-content").innerHTML = html;
+    }
+}
+
+
+    socket.on("guess_submitted", updateLeaderboard);
+    socket.on("players_updated", function(){
+        updateControls();
+        updateLeaderboard();
+    });
+
+    document.addEventListener("submit", async function(event) {
+    const form = event.target;
+
+    if (!form.matches(".pokemon-form")) {
+        return;
+    }
+
+    event.preventDefault();
+
+    const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    });
+
+    const data = await response.json();
+
+    const message = document.getElementById("guess-message");
+
+    if (message) {
+        message.textContent = data.message;
+    }
+
+    if (response.ok) {
+        updateLeaderboard();
+    }
+});
+
+    document.addEventListener("submit", async function(event) {
+    const form = event.target;
+
+    if (!form.matches(".round-action")) {
+        return;
+    }
+
+    event.preventDefault();
+
+    const response = await fetch(form.action, {
+        method: "POST"
+    });
+
+    if (!response.ok) {
+        console.error("Failed to update round");
+    }
+});
+
+
+</script>
 {% endblock %}
