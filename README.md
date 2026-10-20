@@ -15,6 +15,8 @@ Points are calculated based on the numerical difference between the guessed Pok�
 
 The game also features a live leaderboard, host-controlled rounds, Pokémon artwork and the ability to reroll Pokémon between or during rounds.
 
+Additionally, I have made this project as robust to user inputs as I can with both client-side (see if the input is there or the right format) and server-side validation (if the input is a duplicate and the same checks as the client-side) of the inputs. Try to break it and let me know so I can fix it ASAP.
+
 ## How I Made It
 
 DexGuess.io was developed as my final project for Harvard's CS50 Introduction to Computer Science course, allowing me to apply the programming concepts I had learned to a complete web application.
