@@ -1,5 +1,5 @@
-# DexGuess.io
-A real-time multiplayer Pokémon guessing game built using Python, Flask, JavaScript, HTML and CSS. This is a final project for the Harvard CS50 Course. The web-application is currently available to be played at:  [https://pokedexguess-production.up.railway.app/](https://pokedexguess-production.up.railway.app/)
+# DexGuess.app
+A real-time multiplayer Pokémon guessing game built using Python, Flask, JavaScript, HTML and CSS. This is a final project for the Harvard CS50 Course. The web-application is currently available to be played at:  [https://dexguess.app](https://dexguess.app)
 
 Want to see the game in motion? Check out this basic explanation [here!](https://www.youtube.com/watch?v=KqQdoccklDo)
 
@@ -7,7 +7,7 @@ Want to see the game in motion? Check out this basic explanation [here!](https:/
 
 ## About the Project
 
-DexGuess.io is a browser-based multiplayer guessing game inspired by the Pokémon franchise. The objective is simple: players are given a randomly generated Pokédex number (a unique ID value given to every Pokemon in the series) and must guess which Pokémon corresponds to that number.
+DexGuess.app is a browser-based multiplayer guessing game inspired by the Pokémon franchise. The objective is simple: players are given a randomly generated Pokédex number (a unique ID value given to every Pokemon in the series) and must guess which Pokémon corresponds to that number.
 
 Players can create private rooms or join existing ones using a four-digit room code. Each player submits their guess, and once everyone is ready, the host can end the round to reveal the correct Pokémon.
 
@@ -19,7 +19,7 @@ Additionally, I have made this project as robust to user inputs as I can with bo
 
 ## How I Made It
 
-DexGuess.io was developed as my final project for Harvard's CS50 Introduction to Computer Science course, allowing me to apply the programming concepts I had learned to a complete web application.
+DexGuess.app was developed as my final project for Harvard's CS50 Introduction to Computer Science course, allowing me to apply the programming concepts I had learned to a complete web application.
 
 I chose Python and Flask for the backend, which handles room creation, player sessions, Pokémon selection, guess validation and score calculations. The application integrates PokéAPI, a publicly available REST API, to retrieve Pokémon information and artwork.
 
@@ -39,4 +39,4 @@ Throughout development, I used AI as a digital tutor, primarily to explain unfam
 
 Rather than using AI to generate or copy code, I focused on understanding the underlying concepts and writing the implementation myself. This allowed me to develop my problem-solving abilities while learning technologies beyond the original CS50 curriculum, particularly WebSockets, asynchronous JavaScript and deployment.
 
-*DexGuess.io is an unofficial fan project and is not affiliated with or endorsed by Nintendo, Game Freak or The Pokémon Company*
+*DexGuess.app is an unofficial fan project and is not affiliated with or endorsed by Nintendo, Game Freak or The Pokémon Company*
